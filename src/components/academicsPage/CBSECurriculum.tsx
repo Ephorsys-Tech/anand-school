@@ -62,9 +62,9 @@ export default function CBSECurriculum() {
             <div className="absolute inset-0 border-4 border-gold translate-x-6 translate-y-6 rounded-[3rem] -z-10"></div>
             <div className="relative rounded-[3rem] overflow-hidden aspect-square shadow-2xl">
               <img 
-                src="images/ncert.webp" 
+                src="images/wbbook.jpg" 
                 alt="Classroom learning" 
-                className="w-full h-full object-cover"
+                className="w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent"></div>
               

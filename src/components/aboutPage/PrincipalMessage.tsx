@@ -52,7 +52,7 @@ export default function PrincipalMessage() {
                 Leadership
               </span>
 
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-navy leading-tight">
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-navy leading-tight">
                 Message from the <br/>
                 <span className="text-gradient-blue">Headmistress</span>
               </h2>

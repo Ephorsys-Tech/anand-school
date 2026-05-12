@@ -24,7 +24,7 @@ export default function AboutSchool() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-4xl font-black text-navy leading-tight">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-navy leading-tight">
               A Legacy of <br/><span className="text-gradient-blue">Education & Hope</span>
             </h1>
             <p className="text-lg text-navy/70 leading-relaxed">
