@@ -9,19 +9,19 @@ export default function ClassesOffered() {
       level: 'Pre-Primary',
       grades: 'Class K.G.',
       description: 'Foundation stage focusing on basic literacy, numeracy, and social skills.',
-      image: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=800&auto=format&fit=crop'
+      image: '/images/kg.png'
     },
     {
       level: 'Primary',
       grades: 'Class I - V',
       description: 'Building foundational knowledge in core subjects with emphasis on Bengali and Math.',
-      image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop'
+      image: '/images/primary.webp'
     },
     {
       level: 'Middle School',
       grades: 'Class VI - VIII',
       description: 'Introduction to specialized subjects including History, Geography, and Computer.',
-      image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=800&auto=format&fit=crop'
+      image: '/images/middle.jpg'
     },
   ];
 
