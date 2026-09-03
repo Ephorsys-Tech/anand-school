@@ -38,7 +38,7 @@ export default function ChairmanMessage() {
               <Quote className="absolute -top-4 -left-4 w-12 h-12 text-white/5 -z-10 rotate-180" fill="currentColor" />
 
               <p>
-                At Usthi Foundation India, we believe that quality education is the cornerstone of societal transformation. Ananda School exemplifies our commitment to creating inclusive, holistic learning experiences.
+                At Ananda School, Kolkata, we believe that quality education is the cornerstone of societal transformation. Ananda School exemplifies our commitment to creating inclusive, holistic learning experiences.
               </p>
 
               <p>
@@ -53,10 +53,10 @@ export default function ChairmanMessage() {
             <div className="pt-4 border-t border-white/10 flex items-center gap-4">
               <div>
                 <h4 className="font-heading text-lg sm:text-xl font-bold text-white">
-                  Mr. Rajesh Verma
+                  Mr. MD Islam
                 </h4>
                 <p className="text-gold font-semibold tracking-wide text-xs uppercase mt-1">
-                  Chairman, Usthi Foundation India
+                  Secretary, Anand School, Kolkata
                 </p>
               </div>
             </div>

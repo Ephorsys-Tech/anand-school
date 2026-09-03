@@ -5,7 +5,7 @@ import Facilities from '@/components/homePage/Facilities';
 import GalleryPreview from '@/components/homePage/GalleryPreview';
 import HeroSection from '@/components/homePage/heroSection';
 import WhyChooseUs from '@/components/homePage/ourImpact';
-import Students from '@/components/homePage/ourstudents';
+
 
 export default function Home() {
   return (
@@ -14,7 +14,6 @@ export default function Home() {
         <HeroSection />
         <AboutPreview />
         <Facilities />
-        <Students />
         <WhyChooseUs/>
         <GalleryPreview />
       </main>
