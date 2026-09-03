@@ -4,7 +4,7 @@ import VisionMission from '@/components/aboutPage/VisionMission';
 import PrincipalMessage from '@/components/aboutPage/PrincipalMessage';
 import ChairmanMessage from '@/components/aboutPage/ChairmanMessage';
 import Achievements from '@/components/aboutPage/Achievements';
-import Teachers from '@/components/aboutPage/Teachers';
+
 
 export default function AboutPage() {
   return (
@@ -14,7 +14,6 @@ export default function AboutPage() {
       <PrincipalMessage />
       <ChairmanMessage />
       <Achievements />
-      <Teachers />
     </main>
   );
 }
