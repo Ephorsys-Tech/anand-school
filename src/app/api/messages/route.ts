@@ -3,10 +3,11 @@ import connectDB from '@/lib/mongodb';
 import Message from '@/models/Message';
 import { verifyAuth } from '@/middleware/auth';
 
-// GET all messages (Admin only)
-export async function GET(request: NextRequest) {
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
-    // Verify admin authentication
     const auth = await verifyAuth(request);
 
     if (!auth.valid) {
@@ -16,58 +17,28 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    const { id } = await params;
+
     await connectDB();
 
-    const messages = await Message.find().sort({ createdAt: -1 });
+    const deletedMessage = await Message.findByIdAndDelete(id);
 
-    return NextResponse.json(
-      {
-        message: 'Messages fetched successfully',
-        data: messages,
-      },
-      { status: 200 }
-    );
-  } catch (error: any) {
-    console.error('Fetch messages error:', error);
-    return NextResponse.json(
-      { error: error.message || 'Failed to fetch messages' },
-      { status: 500 }
-    );
-  }
-}
-
-// POST - Create message (Public)
-export async function POST(request: NextRequest) {
-  try {
-    await connectDB();
-
-    const { name, email, phone, message } = await request.json();
-
-    if (!name || !phone || !message) {
+    if (!deletedMessage) {
       return NextResponse.json(
-        { error: 'Name, phone and message are required' },
-        { status: 400 }
+        { error: 'Message not found' },
+        { status: 404 }
       );
     }
 
-    const newMessage = await Message.create({
-      name,
-      email,
-      phone,
-      message,
-    });
-
     return NextResponse.json(
-      {
-        message: 'Message sent successfully',
-        data: newMessage,
-      },
-      { status: 201 }
+      { message: 'Message deleted successfully' },
+      { status: 200 }
     );
   } catch (error: any) {
-    console.error('Create message error:', error);
+    console.error('Delete message error:', error);
+
     return NextResponse.json(
-      { error: error.message || 'Failed to send message' },
+      { error: error.message || 'Failed to delete message' },
       { status: 500 }
     );
   }
