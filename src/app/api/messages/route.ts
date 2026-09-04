@@ -6,7 +6,6 @@ import { verifyAuth } from '@/middleware/auth';
 // GET all messages (Admin only)
 export async function GET(request: NextRequest) {
   try {
-    // Verify admin authentication
     const auth = await verifyAuth(request);
 
     if (!auth.valid) {
@@ -29,6 +28,7 @@ export async function GET(request: NextRequest) {
     );
   } catch (error: any) {
     console.error('Fetch messages error:', error);
+
     return NextResponse.json(
       { error: error.message || 'Failed to fetch messages' },
       { status: 500 }
@@ -66,6 +66,7 @@ export async function POST(request: NextRequest) {
     );
   } catch (error: any) {
     console.error('Create message error:', error);
+
     return NextResponse.json(
       { error: error.message || 'Failed to send message' },
       { status: 500 }
