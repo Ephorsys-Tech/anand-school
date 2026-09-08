@@ -1,34 +1,156 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Mail, MapPin, Phone, Send, Clock, MessageCircle, ExternalLink } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Clock, MessageCircle, ExternalLink, Loader2, CheckCircle2, X } from 'lucide-react';
+import { contactMessageSchema } from '@/lib/validations/message';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [fieldErrors, setFieldErrors] = useState<{ [key: string]: string }>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // Auto-hide success message after 3.5 seconds
+  useEffect(() => {
+    if (status === 'success') {
+      const timer = setTimeout(() => {
+        setStatus('idle');
+      }, 3500);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
+  // Name input change handler - ONLY allow alphabets & single spaces between words
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let sanitized = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+    // Prevent leading space & collapse multiple spaces
+    sanitized = sanitized.trimStart().replace(/\s{2,}/g, ' ');
+    setFormData((prev) => ({ ...prev, name: sanitized }));
+    if (fieldErrors.name) {
+      setFieldErrors((prev) => ({ ...prev, name: '' }));
+    }
+  };
+
+  // Prevent invalid keys in Name field
+  const handleNameKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Allow control/navigation keys
+    if (
+      e.key === 'Backspace' ||
+      e.key === 'Tab' ||
+      e.key === 'Delete' ||
+      e.key === 'ArrowLeft' ||
+      e.key === 'ArrowRight'
+    ) {
+      return;
+    }
+
+    // Handle Space key
+    if (e.key === ' ' || e.key === 'Space') {
+      const target = e.target as HTMLInputElement;
+      // Block space if input is empty or if previous character is already a space
+      if (target.value.length === 0 || target.value.endsWith(' ')) {
+        e.preventDefault();
+      }
+      return; // ALLOW space between words!
+    }
+
+    // Allow alphabets, Ctrl, Meta keys
+    if (!/^[a-zA-Z]$/.test(e.key) && !e.ctrlKey && !e.metaKey) {
+      e.preventDefault();
+    }
+  };
+
+  // Phone input change handler - ONLY allow Indian digits (max 10)
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const sanitized = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+    setFormData((prev) => ({ ...prev, phone: sanitized }));
+    if (fieldErrors.phone) {
+      setFieldErrors((prev) => ({ ...prev, phone: '' }));
+    }
+  };
+
+  // Prevent non-digit keys in Phone field
+  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (
+      e.key === 'Backspace' ||
+      e.key === 'Tab' ||
+      e.key === 'Delete' ||
+      e.key === 'ArrowLeft' ||
+      e.key === 'ArrowRight'
+    ) {
+      return;
+    }
+    if (!/^[0-9]$/.test(e.key) && !e.ctrlKey && !e.metaKey) {
+      e.preventDefault();
+    }
+  };
+
+  // Message textarea change handler - prevent leading spaces
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    let sanitized = e.target.value.trimStart();
+    setFormData((prev) => ({ ...prev, message: sanitized }));
+    if (fieldErrors.message) {
+      setFieldErrors((prev) => ({ ...prev, message: '' }));
+    }
+  };
+
+  const handleMessageKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    // Block space only if textarea is completely empty
+    if ((e.key === ' ' || e.key === 'Space') && formData.message.length === 0) {
+      e.preventDefault();
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setFieldErrors({});
+    setErrorMessage('');
+
+    // Pre-trim form data before validation
+    const payloadToValidate = {
+      name: formData.name.trim().replace(/\s+/g, ' '),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      message: formData.message.trim(),
+    };
+
+    // Frontend Zod validation
+    const validation = contactMessageSchema.safeParse(payloadToValidate);
+    if (!validation.success) {
+      const errors: { [key: string]: string } = {};
+      validation.error.issues.forEach((issue) => {
+        if (issue.path[0]) {
+          errors[issue.path[0].toString()] = issue.message;
+        }
+      });
+      setFieldErrors(errors);
+      return;
+    }
+
     setStatus('loading');
+
     try {
       const response = await fetch('/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(validation.data),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error(data.error || 'Failed to send message');
       }
 
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending message:', error);
       setStatus('error');
+      setErrorMessage(error.message || 'Message could not be sent. Please try again.');
     }
   };
 
@@ -53,14 +175,14 @@ export default function ContactPage() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="tel:+917853822264"
+                href="tel:+919830086774"
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-navy px-6 py-4 font-bold text-cream transition-colors hover:bg-blue"
               >
                 <Phone size={20} />
                 Call School
               </a>
               <a
-                href="mailto:usthischool@gmail.com"
+                href="mailto:usthiindia@gmail.com"
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-blue/25 bg-white px-6 py-4 font-bold text-navy transition-colors hover:border-blue hover:text-blue"
               >
                 <Mail size={20} />
@@ -89,15 +211,15 @@ export default function ContactPage() {
 
       <section className="border-y border-blue/10 bg-accent py-8">
         <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
-          <a href="tel:+917853822264" className="rounded-lg bg-white p-6 shadow-sm transition-transform hover:-translate-y-1">
+          <a href="tel:+919830086774" className="rounded-lg bg-white p-6 shadow-sm transition-transform hover:-translate-y-1">
             <Phone className="mb-4 text-blue" size={28} />
             <h2 className="font-heading text-sm md:text-lg font-black text-navy">Phone</h2>
-            <p className="mt-2 font-semibold text-navy/70">+91 78538 22264</p>
+            <p className="mt-2 font-semibold text-navy/70">+91 9830086774</p>
           </a>
-          <a href="mailto:usthischool@gmail.com" className="rounded-lg bg-white p-6 shadow-sm transition-transform hover:-translate-y-1">
+          <a href="mailto:usthiindia@gmail.com" className="rounded-lg bg-white p-6 shadow-sm transition-transform hover:-translate-y-1">
             <Mail className="mb-4 text-blue" size={28} />
             <h2 className="font-heading text-sm md:text-lg font-black text-navy">Email</h2>
-            <p className="mt-2 break-words font-semibold text-navy/70">usthischool@gmail.com</p>
+            <p className="mt-2 break-words font-semibold text-navy/70">usthiindia@gmail.com</p>
           </a>
           <div className="rounded-lg bg-white p-6 shadow-sm">
             <Clock className="mb-4 text-blue" size={28} />
@@ -152,54 +274,88 @@ export default function ContactPage() {
               <span className="text-sm font-black uppercase tracking-[0.22em] text-gold">Send a Message</span>
               <h2 className="mt-3 font-heading text-4xl font-black text-cream">Tell us how we can help</h2>
 
-              <form onSubmit={handleSubmit} className="mt-8 grid gap-5">
+              <form onSubmit={handleSubmit} className="mt-8 grid gap-5" noValidate>
                 <div className="grid gap-5 md:grid-cols-2">
+                  {/* Full Name Field */}
                   <label className="block">
-                    <span className="mb-2 block text-sm font-semibold text-cream/80">Full Name <span className="text-gold">*</span></span>
+                    <span className="mb-2 block text-sm font-semibold text-cream/80">
+                      Full Name <span className="text-gold">*</span>
+                    </span>
                     <input
                       type="text"
-                      required
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full rounded-md border border-cream/20 bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold"
-                      placeholder="Your name"
+                      onChange={handleNameChange}
+                      onKeyDown={handleNameKeyDown}
+                      className={`w-full rounded-md border bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
+                        fieldErrors.name ? 'border-red-400' : 'border-cream/20'
+                      }`}
+                      placeholder="Your Name"
                     />
+                    {fieldErrors.name && (
+                      <p className="mt-1 text-xs font-semibold text-red-300">{fieldErrors.name}</p>
+                    )}
                   </label>
 
+                  {/* Phone Number Field */}
                   <label className="block">
-                    <span className="mb-2 block text-sm font-semibold text-cream/80">Phone Number <span className="text-gold">*</span></span>
+                    <span className="mb-2 block text-sm font-semibold text-cream/80">
+                      Phone Number <span className="text-gold">*</span>
+                    </span>
                     <input
                       type="tel"
-                      required
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full rounded-md border border-cream/20 bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold"
-                      placeholder="+91"
+                      onChange={handlePhoneChange}
+                      onKeyDown={handlePhoneKeyDown}
+                      maxLength={10}
+                      className={`w-full rounded-md border bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
+                        fieldErrors.phone ? 'border-red-400' : 'border-cream/20'
+                      }`}
+                      placeholder="Your Phone Number"
                     />
+                    {fieldErrors.phone && (
+                      <p className="mt-1 text-xs font-semibold text-red-300">{fieldErrors.phone}</p>
+                    )}
                   </label>
                 </div>
 
+                {/* Email Field */}
                 <label className="block">
                   <span className="mb-2 block text-sm font-semibold text-cream/80">Email Address</span>
                   <input
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full rounded-md border border-cream/20 bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold"
+                    onChange={(e) => {
+                      setFormData({ ...formData, email: e.target.value.trimStart() });
+                      if (fieldErrors.email) setFieldErrors((prev) => ({ ...prev, email: '' }));
+                    }}
+                    className={`w-full rounded-md border bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
+                      fieldErrors.email ? 'border-red-400' : 'border-cream/20'
+                    }`}
                     placeholder="you@example.com"
                   />
+                  {fieldErrors.email && (
+                    <p className="mt-1 text-xs font-semibold text-red-300">{fieldErrors.email}</p>
+                  )}
                 </label>
 
+                {/* Message Field */}
                 <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-cream/80">Message <span className="text-gold">*</span></span>
+                  <span className="mb-2 block text-sm font-semibold text-cream/80">
+                    Message <span className="text-gold">*</span>
+                  </span>
                   <textarea
-                    required
                     rows={5}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full resize-none rounded-md border border-cream/20 bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold"
+                    onChange={handleMessageChange}
+                    onKeyDown={handleMessageKeyDown}
+                    className={`w-full resize-none rounded-md border bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
+                      fieldErrors.message ? 'border-red-400' : 'border-cream/20'
+                    }`}
                     placeholder="Write your question here"
                   ></textarea>
+                  {fieldErrors.message && (
+                    <p className="mt-1 text-xs font-semibold text-red-300">{fieldErrors.message}</p>
+                  )}
                 </label>
 
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -208,12 +364,49 @@ export default function ContactPage() {
                     disabled={status === 'loading'}
                     className="inline-flex items-center justify-center gap-2 rounded-md bg-gold px-8 py-4 font-black text-navy transition-colors hover:bg-amber hover:text-cream disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    <Send size={20} />
-                    {status === 'loading' ? 'Sending...' : 'Send Message'}
+                    {status === 'loading' ? (
+                      <>
+                        <Loader2 size={20} className="animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={20} />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </button>
 
-                  {status === 'success' && <p className="text-sm font-semibold text-green-300">Message sent successfully.</p>}
-                  {status === 'error' && <p className="text-sm font-semibold text-red-300">Message could not be sent. Please try again.</p>}
+                  {status === 'success' && (
+                    <div className="flex items-center justify-between gap-3 text-sm font-semibold text-green-300 bg-green-950/70 border border-green-500/40 px-4 py-3 rounded-md shadow-lg animate-in fade-in duration-300">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 size={18} className="text-green-400 shrink-0" />
+                        <span>Message sent successfully.</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setStatus('idle')}
+                        className="text-green-300/70 hover:text-white transition-colors"
+                        aria-label="Dismiss alert"
+                      >
+                        <X size={16} />
+                      </button>
+                    </div>
+                  )}
+
+                  {status === 'error' && (
+                    <div className="flex items-center justify-between gap-3 text-sm font-semibold text-red-300 bg-red-950/70 border border-red-500/40 px-4 py-3 rounded-md shadow-lg animate-in fade-in duration-300">
+                      <span>{errorMessage || 'Message could not be sent. Please try again.'}</span>
+                      <button
+                        type="button"
+                        onClick={() => setStatus('idle')}
+                        className="text-red-300/70 hover:text-white transition-colors"
+                        aria-label="Dismiss error"
+                      >
+                        <X size={16} />
+                      </button>
+                    </div>
+                  )}
                 </div>
               </form>
             </div>

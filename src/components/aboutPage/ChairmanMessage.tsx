@@ -29,7 +29,7 @@ export default function ChairmanMessage() {
 
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black leading-tight">
                 Message from the <br/>
-                <span className="text-gold">Chairman</span>
+                <span className="text-gold">Secretary</span>
               </h2>
             </div>
             

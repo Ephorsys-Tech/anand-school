@@ -6,8 +6,8 @@ import { BookMarked } from 'lucide-react';
 export default function Subjects() {
   const classSubjects = [
     { level: 'KG to Class I', subjects: ['Bengali', 'English', 'Mathematics', 'General Knowledge'] },
-    { level: 'Class II to V', subjects: ['Bengali', 'English', 'Mathematics', 'E.V.S', 'History', 'Computer (Class V)'] },
-    { level: 'Class VI to VIII', subjects: ['Bengali', 'English', 'Mathematics', 'E.V.S', 'History', 'Geography', 'Computer'] },
+    { level: 'Class II to V', subjects: ['Bengali', 'English', 'Mathematics', 'E.V.S', 'Computer'] },
+    { level: 'Class VI to VIII', subjects: ['Bengali', 'English', 'Mathematics','Science', 'E.V.S', 'Social Studies', 'Computer'] },
     { level: 'Extra-Curricular', subjects: ['Music', 'Art and Craft'] }
   ];
 

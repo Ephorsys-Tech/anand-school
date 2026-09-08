@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutSchool() {
   const stats = [
-    { label: 'Teachers', value: '10' },
+    { label: 'Teachers', value: '20+' },
     { label: 'Years', value: '39+' },
     { label: 'Curriculum', value: 'State Board' },
     { label: 'Classes', value: 'KG - VIII' },
