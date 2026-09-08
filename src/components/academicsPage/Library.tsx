@@ -5,9 +5,9 @@ import { BookOpen, BookText, Laptop, Users } from 'lucide-react';
 
 export default function Library() {
   const statistics = [
-    { number: '5000+', label: 'Physical Books' },
+    { number: '500+', label: 'Physical Books' },
     { number: '500+', label: 'E-Resources' },
-    { number: '24/7', label: 'Digital Access' },
+    { number: '4', label: 'Digital Classes' },
     { number: '50+', label: 'Journals' }
   ];
 

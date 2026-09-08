@@ -36,8 +36,8 @@ const slides: Slide[] = [
   {
     img: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&q=80",
     badge: "Usthi Foundation Initiative",
-    heading: "Nurturing Minds At",
-    highlight: "Ananda School",
+    heading: "Nurturing Minds",
+    highlight: "And",
     tail: "Transforming Lives",
     subtext:
       "Backed by Usthi Foundation, Ananda School (Kolkata) provides basic literacy, life skills, nutritious meals, and values in an inclusive learning environment.",
@@ -47,9 +47,9 @@ const slides: Slide[] = [
   {
     img: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1600&q=80",
     badge: "Building Tomorrow's Leaders",
-    heading: "Empowering The Future",
-    highlight: "At Ananda School",
-    tail: "Usthi Foundation",
+    heading: "Empowering ",
+    highlight: "The Future",
+    tail: "",
     subtext:
       "Creating a poverty-free society through accessible, empowering education for rural and village children across the Kolkata region.",
     button: "Admissions Open",

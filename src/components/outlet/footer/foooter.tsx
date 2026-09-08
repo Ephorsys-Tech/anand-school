@@ -26,13 +26,13 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-3 lg:col-span-2 lg:max-w-[520px]">
             <Link href="/" className="flex items-center gap-3 mb-4 group">
               {/* Logo */}
-            <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden">
-              <img
-                src="images/logo.png"
-                alt="School Logo"
-                className="w-full h-full object-cover"
-              />
-            </div>
+              <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden">
+                <img
+                  src="images/logo.png"
+                  alt="School Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <span className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-cream leading-tight">
                 Ananda School (U.F.I.)
               </span>
@@ -47,18 +47,6 @@ export default function Footer() {
                 className="w-11 h-11 rounded-full glass-navy flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-all duration-300"
               >
                 <BsYoutube size={18} />
-              </a>
-              <a
-                href="#"
-                className="w-11 h-11 rounded-full glass-navy flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-all duration-300"
-              >
-                <FaTwitter size={18} />
-              </a>
-              <a
-                href="#"
-                className="w-11 h-11 rounded-full glass-navy flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-all duration-300"
-              >
-                <FaInstagram size={18} />
               </a>
             </div>
           </div>
@@ -112,16 +100,22 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MdLocationOn className="text-gold mt-1 shrink-0" size={20} />
                 <span className="text-cream/80 text-sm md:text-base">
-                  Huderait, P.O. – Bagu, 24 Pgs (N:), W.B.
+                  Anand School, HGGM+CH3, Patharghata,
+                  Newtown, Hudarait, West Bengal
+                  700135
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <MdPhone className="text-gold shrink-0" size={20} />
-                <span className="text-cream/80 text-sm md:text-base">+91 7853822264</span>
+              <li className="flex items-start gap-3">
+                <MdPhone className="text-gold shrink-0 mt-1" size={20} />
+                <div className="flex flex-col gap-1">
+                  <span className="text-cream/80 text-sm md:text-base transition-colors">
+                    +91 98300 86774
+                  </span>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <MdEmail className="text-gold shrink-0" size={20} />
-                <span className="text-cream/80 text-sm md:text-base">usthischool@gmail.com</span>
+                <span className="text-cream/80 text-sm md:text-base">usthiindia@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -130,7 +124,7 @@ export default function Footer() {
 
         <div className="border-t border-cream/10 pt-8 flex flex-col lg:flex-row justify-between items-center gap-4 text-cream/60 text-sm">
           <p className="text-center lg:text-left">&copy; {new Date().getFullYear()} Ananda School (U.F.I.). All rights reserved.</p>
-          
+
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gold transition-colors">Terms of Service</Link>

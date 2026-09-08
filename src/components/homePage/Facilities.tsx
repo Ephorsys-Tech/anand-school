@@ -47,7 +47,7 @@ export default function Facilities() {
       <div className="max-w-7xl mx-auto px-4 sm:px-1 md:px-10 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-navy mb-4">
-            World-Class <span className="text-gold">Facilities</span>
+            Facilities <span className="text-gold">We Offer</span>
           </h2>
         </div>
 

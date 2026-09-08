@@ -202,60 +202,6 @@ export default function Achievements() {
           </div>
         </div>
 
-        {/* ── Student Achievements ── */}
-        <div className="mb-20">
-          <SectionLabel>Student Spotlight</SectionLabel>
-
-          {/* Tabs */}
-          <div className="flex gap-2 mt-6 mb-8 flex-wrap justify-center">
-            {tabs.map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-200 ${
-                  activeTab === tab.id
-                    ? 'bg-navy text-white shadow-md'
-                    : 'bg-white text-navy/70 border border-navy/10 hover:bg-navy/5'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((a, i) => (
-              <motion.div
-                key={`${a.category}-${a.title}`}
-                layout
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.35, delay: i * 0.06 }}
-                className={`rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-1 ${
-                  a.highlight
-                    ? 'bg-linear-to-br from-navy to-blue text-white border-none shadow-lg shadow-navy/20'
-                    : 'bg-white text-navy border-navy/5 shadow-sm hover:shadow-md'
-                }`}
-              >
-                <span className="text-4xl block mb-4">{a.icon}</span>
-                <span className={`inline-block px-3 py-1 rounded-md text-xs font-bold tracking-wider uppercase mb-3 ${
-                  a.highlight
-                    ? 'bg-white/15 text-gold'
-                    : 'bg-navy/5 text-blue'
-                }`}>
-                  {a.category}
-                </span>
-                <h4 className="text-xl font-bold mb-2 leading-tight">{a.title}</h4>
-                <p className={`text-sm leading-relaxed ${
-                  a.highlight ? 'text-white/80' : 'text-navy/70'
-                }`}>
-                  {a.details}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
         {/* ── Initiatives ── */}
         <div>
           <SectionLabel>How We Make a Difference</SectionLabel>
@@ -291,10 +237,10 @@ export default function Achievements() {
           className="text-center mt-20 p-10 bg-linear-to-br from-navy to-blue rounded-3xl text-white shadow-xl shadow-navy/20"
         >
           <p className="text-xl md:text-2xl font-medium italic leading-relaxed mb-4 text-white/90">
-            "It is believed that each child is unique and has inherent potential to develop his or her personality."
+            "Within every child lies a unique world of possibilities, waiting to unfold and shape who they become."
           </p>
           <span className="text-xs font-bold tracking-widest uppercase text-gold font-sans">
-            — Penthakata Project School
+            — Anand School
           </span>
         </motion.blockquote>
 

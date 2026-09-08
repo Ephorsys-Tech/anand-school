@@ -86,11 +86,11 @@ export default function ClassesOffered() {
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative z-10">
             <div className="group">
-              <div className="text-5xl font-black text-gold mb-4 group-hover:scale-110 transition-transform inline-block">9</div>
+              <div className="text-5xl font-black text-gold mb-4 group-hover:scale-110 transition-transform inline-block">10+</div>
               <p className="text-xl font-medium tracking-wide">Class Rooms</p>
             </div>
             <div className="group">
-              <div className="text-5xl font-black text-gold mb-4 group-hover:scale-110 transition-transform inline-block">7</div>
+              <div className="text-5xl font-black text-gold mb-4 group-hover:scale-110 transition-transform inline-block">6</div>
               <p className="text-xl font-medium tracking-wide">Max Subjects per Class</p>
             </div>
             <div className="group">

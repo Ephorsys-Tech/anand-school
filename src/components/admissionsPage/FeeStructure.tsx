@@ -17,46 +17,6 @@ export default function FeeStructure() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="text-center mb-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-blue/10 rounded-2xl flex items-center justify-center text-blue shadow-lg">
-                <CreditCard size={40} />
-              </div>
-            </div>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-navy mb-6">
-              Fee <span className="text-gradient-blue">Structure</span>
-            </h2>
-            <p className="text-navy/70 max-w-2xl mx-auto text-lg font-medium">
-              Quality education at affordable prices, fully supported by Usthi Foundation India.
-            </p>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-          {feeStructure.map((item, idx) => (
-            <motion.div 
-              key={idx} 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-[2.5rem] p-8 shadow-xl border border-navy/5 text-center hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
-            >
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue to-gold opacity-50 group-hover:opacity-100 transition-opacity"></div>
-               <h3 className="font-heading text-xl font-black text-navy mb-4">{item.class}</h3>
-              <div className="text-3xl font-black text-blue mb-4">{item.tuition}</div>
-              <div className="bg-accent rounded-xl p-4">
-                <p className="text-navy/70 text-sm font-medium">{item.period}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +25,7 @@ export default function FeeStructure() {
         >
           <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue/20 rounded-full blur-[120px] pointer-events-none"></div>
           
-          <h3 className="font-heading text-3xl md:text-4xl font-black text-gold mb-12 text-center relative z-10">Fee Breakdown & Benefits</h3>
+          <h3 className="font-heading text-3xl md:text-4xl font-black text-gold mb-12 text-center relative z-10">Benefits</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
             <div>
