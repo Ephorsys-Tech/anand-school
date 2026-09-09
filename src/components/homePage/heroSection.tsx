@@ -23,7 +23,7 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&q=80",
+    img: "https://res.cloudinary.com/dfdi9ngal/image/upload/v1788932431/IMG_0146_j0wuw9.jpg",
     badge: "Usthi Foundation India • Kolkata",
     heading: "Welcome To",
     highlight: "Ananda School",
@@ -34,7 +34,7 @@ const slides: Slide[] = [
     link: "/aboutus",
   },
   {
-    img: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&q=80",
+    img: "https://res.cloudinary.com/dfdi9ngal/image/upload/v1788932663/IMG_0150_ydzpa7.jpg",
     badge: "Usthi Foundation Initiative",
     heading: "Nurturing Minds",
     highlight: "And",
@@ -45,7 +45,7 @@ const slides: Slide[] = [
     link: "/academics",
   },
   {
-    img: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1600&q=80",
+    img: "https://res.cloudinary.com/dfdi9ngal/image/upload/v1788932936/IMG_0126_sbmpzx.jpg",
     badge: "Building Tomorrow's Leaders",
     heading: "Empowering ",
     highlight: "The Future",

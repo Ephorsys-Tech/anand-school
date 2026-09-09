@@ -35,7 +35,7 @@ export default function Eligibility() {
             
             <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl border-4 border-white/10 hidden lg:block">
               <img 
-                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" 
+                src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788936239/IMG_9855_kuwgnz.jpg" 
                 alt="Students" 
                 className="w-full h-full object-cover"
               />
