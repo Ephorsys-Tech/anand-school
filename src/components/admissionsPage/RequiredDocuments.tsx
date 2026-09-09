@@ -83,7 +83,7 @@ export default function RequiredDocuments() {
             className="relative rounded-[3rem] overflow-hidden aspect-[4/3] lg:aspect-auto shadow-2xl border-4 border-white"
           >
             <img 
-              src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop" 
+              src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788936371/IMG_0033_p7jcbl.jpg" 
               alt="Documents" 
               className="w-full h-full object-cover"
             />

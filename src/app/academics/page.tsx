@@ -18,7 +18,7 @@ export default function AcademicsPage() {
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/ACADEMICS.jpg"
+            src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788935400/IMG_9807_pvcgpx.jpg"
             alt="Academic Excellence Background"
             className="w-full h-full object-cover"
           />

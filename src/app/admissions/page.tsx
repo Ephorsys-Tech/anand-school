@@ -16,7 +16,7 @@ export default function AdmissionsPage() {
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/adm.webp"
+            src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788936121/IMG_9811_s6kxw3.jpg"
             alt="Students at Usthi Foundation India School"
             className="w-full h-full object-cover"
           />

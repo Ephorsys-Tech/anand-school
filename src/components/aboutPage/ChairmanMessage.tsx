@@ -75,7 +75,7 @@ export default function ChairmanMessage() {
 
             <div className="bg-navy/50 rounded-3xl overflow-hidden aspect-4/5 p-2 shadow-xl backdrop-blur-lg border border-white/10">
               <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop" 
+                src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788934204/IMG_9693_tyqgwz.jpg" 
                 alt="Chairman" 
                 className="w-full h-full object-cover rounded-2xl"
               />
