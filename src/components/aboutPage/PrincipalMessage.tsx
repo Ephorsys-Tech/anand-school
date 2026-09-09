@@ -24,7 +24,7 @@ export default function PrincipalMessage() {
 
             <div className="bg-white rounded-3xl overflow-hidden aspect-4/5 p-2 shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?q=80&w=1000&auto=format&fit=crop" 
+                src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788953561/IMG-20260909-WA0063.jpg_zumboz.jpg" 
                 alt="Principal" 
                 className="w-full h-full object-cover rounded-2xl"
               />

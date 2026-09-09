@@ -51,7 +51,7 @@ export default function AboutPreview() {
             <div className="relative w-full h-65 sm:h-80 md:h-100 lg:h-112.5 rounded-2xl overflow-hidden shadow-xl">
               
               <Image
-                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80"
+                src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788953639/20230801_132607.jpg_ehe4le.jpg"
                 alt="School"
                 fill
                 className="object-cover"
