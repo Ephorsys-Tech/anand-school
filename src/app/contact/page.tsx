@@ -156,42 +156,43 @@ export default function ContactPage() {
 
   return (
     <main className="flex-grow bg-cream text-navy">
-      <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <div className="absolute inset-0 bg-mesh opacity-80"></div>
-        <div className="absolute top-0 -right-48 h-128 w-lg rounded-full bg-blue/10 blur-[140px]"></div>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden pt-24 sm:pt-32 lg:pt-40 pb-12 sm:pb-20 lg:pb-28">
+        <div className="absolute inset-0 bg-mesh opacity-80 pointer-events-none"></div>
+        <div className="absolute top-0 -right-48 h-128 w-lg rounded-full bg-blue/10 blur-[140px] pointer-events-none"></div>
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
           <div>
-            <span className="mb-5 inline-flex items-center gap-2 rounded-md border border-gold/30 bg-white/70 px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-blue">
-              <MessageCircle size={16} />
-              Contact Ananda School (U.F.I.)
+            <span className="mb-4 sm:mb-5 inline-flex max-w-full items-center gap-2 rounded-md border border-gold/30 bg-white/70 px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.22em] text-blue">
+              <MessageCircle size={16} className="shrink-0" />
+              <span className="truncate">Contact Ananda School (U.F.I.)</span>
             </span>
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-navy ">
+            <h1 className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-navy">
               Let us help with your next <span className="text-gradient-gold">school visit</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg font-medium leading-relaxed text-navy/70 md:text-xl">
+            <p className="mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg font-medium leading-relaxed text-navy/70 md:text-xl">
               Ask about admissions, fees, documents, facilities, or campus visits. Share a few details and our team will get back to you.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
                 href="tel:+919830086774"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-navy px-6 py-4 font-bold text-cream transition-colors hover:bg-blue"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md bg-navy px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-cream transition-colors hover:bg-blue"
               >
-                <Phone size={20} />
-                Call School
+                <Phone size={18} className="sm:w-5 sm:h-5 shrink-0" />
+                <span>Call School</span>
               </a>
               <a
                 href="mailto:usthiindia@gmail.com"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-blue/25 bg-white px-6 py-4 font-bold text-navy transition-colors hover:border-blue hover:text-blue"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md border border-blue/25 bg-white px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-navy transition-colors hover:border-blue hover:text-blue"
               >
-                <Mail size={20} />
-                Email Office
+                <Mail size={18} className="sm:w-5 sm:h-5 shrink-0" />
+                <span>Email Office</span>
               </a>
             </div>
           </div>
 
-          <div className="relative min-h-[360px] overflow-hidden rounded-lg shadow-2xl">
+          <div className="relative h-64 sm:h-80 lg:h-full min-h-[260px] sm:min-h-[320px] lg:min-h-[360px] w-full overflow-hidden rounded-xl shadow-2xl">
             <Image
               src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788953639/20230801_132607.jpg_ehe4le.jpg"
               alt="Students and staff at Ananda School"
@@ -200,54 +201,56 @@ export default function ContactPage() {
               className="object-cover"
               sizes="(min-width: 1024px) 45vw, 100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent"></div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">Campus Office</p>
-              <p className="mt-2 max-w-sm text-lg font-semibold">Huderait, P.O. – Bagu, 24 Pgs (N:), W.B.</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-wider sm:tracking-[0.18em] text-gold">Campus Office</p>
+              <p className="mt-1 sm:mt-2 max-w-sm text-base sm:text-lg font-semibold leading-snug">Huderait, P.O. – Bagu, 24 Pgs (N:), W.B.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-blue/10 bg-accent py-8">
-        <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
-          <a href="tel:+919830086774" className="rounded-lg bg-white p-6 shadow-sm transition-transform hover:-translate-y-1">
-            <Phone className="mb-4 text-blue" size={28} />
-            <h2 className="font-heading text-sm md:text-lg font-black text-navy">Phone</h2>
-            <p className="mt-2 font-semibold text-navy/70">+91 9830086774</p>
+      {/* Quick Contact Info Cards */}
+      <section className="border-y border-blue/10 bg-accent py-6 sm:py-8">
+        <div className="mx-auto grid max-w-7xl gap-4 sm:gap-6 px-4 sm:px-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:px-8">
+          <a href="tel:+919830086774" className="rounded-xl bg-white p-5 sm:p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+            <Phone className="mb-3 sm:mb-4 text-blue" size={24} />
+            <h2 className="font-heading text-base sm:text-lg font-black text-navy">Phone</h2>
+            <p className="mt-1.5 sm:mt-2 text-sm sm:text-base font-semibold text-navy/70 break-words">+91 9830086774</p>
           </a>
-          <a href="mailto:usthiindia@gmail.com" className="rounded-lg bg-white p-6 shadow-sm transition-transform hover:-translate-y-1">
-            <Mail className="mb-4 text-blue" size={28} />
-            <h2 className="font-heading text-sm md:text-lg font-black text-navy">Email</h2>
-            <p className="mt-2 break-words font-semibold text-navy/70">usthiindia@gmail.com</p>
+          <a href="mailto:usthiindia@gmail.com" className="rounded-xl bg-white p-5 sm:p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+            <Mail className="mb-3 sm:mb-4 text-blue" size={24} />
+            <h2 className="font-heading text-base sm:text-lg font-black text-navy">Email</h2>
+            <p className="mt-1.5 sm:mt-2 text-sm sm:text-base font-semibold text-navy/70 break-all sm:break-words">usthiindia@gmail.com</p>
           </a>
-          <div className="rounded-lg bg-white p-6 shadow-sm">
-            <Clock className="mb-4 text-blue" size={28} />
-            <h2 className="font-heading text-sm md:text-lg font-black text-navy">Office Help</h2>
-            <p className="mt-2 font-semibold text-navy/70">Admissions, documents, fees, and school visits</p>
+          <div className="rounded-xl bg-white p-5 sm:p-6 shadow-sm sm:col-span-2 md:col-span-1">
+            <Clock className="mb-3 sm:mb-4 text-blue" size={24} />
+            <h2 className="font-heading text-base sm:text-lg font-black text-navy">Office Help</h2>
+            <p className="mt-1.5 sm:mt-2 text-sm sm:text-base font-semibold text-navy/70">Admissions, documents, fees, and school visits</p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      {/* Campus Visit & Form Section */}
+      <section className="py-12 sm:py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:gap-12 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <aside className="space-y-6">
             <div>
-              <span className="text-sm font-black uppercase tracking-[0.22em] text-blue">Reach Us</span>
-              <h2 className="mt-3 font-heading text-3xl sm:text-4xl md:text-5xl font-black text-navy">Visit the campus office</h2>
-              <p className="mt-4 text-lg leading-relaxed text-navy/70">
+              <span className="text-xs sm:text-sm font-black uppercase tracking-wider sm:tracking-[0.22em] text-blue">Reach Us</span>
+              <h2 className="mt-2 sm:mt-3 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-navy">Visit the campus office</h2>
+              <p className="mt-3 sm:mt-4 text-base sm:text-lg leading-relaxed text-navy/70">
                 For admissions support, bring your questions to the school office or send them through the form.
               </p>
             </div>
 
-            <div className="rounded-lg border border-blue/10 bg-white p-6 shadow-sm">
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-blue/10 text-blue">
-                  <MapPin />
+            <div className="rounded-xl border border-blue/10 bg-white p-4 sm:p-6 shadow-sm">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-md bg-blue/10 text-blue">
+                  <MapPin size={22} />
                 </div>
                 <div>
-                  <h3 className="font-heading text-xl font-black">Address</h3>
-                  <p className="mt-2 leading-relaxed text-navy/70">
+                  <h3 className="font-heading text-lg sm:text-xl font-black">Address</h3>
+                  <p className="mt-1.5 sm:mt-2 text-sm sm:text-base leading-relaxed text-navy/70">
                     Ananda School (U.F.I.)<br />
                     Huderait, P.O. – Bagu<br />
                     24 Pgs (N:), W.B.
@@ -256,7 +259,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="relative h-72 overflow-hidden rounded-lg shadow-xl">
+            <div className="relative h-52 sm:h-64 lg:h-72 w-full overflow-hidden rounded-xl shadow-xl">
               <Image
                 src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1789026446/anandaschool_xqbv59.jpg"
                 alt="Usthi Foundation India School campus building"
@@ -267,18 +270,19 @@ export default function ContactPage() {
             </div>
           </aside>
 
-          <div className="relative overflow-hidden rounded-lg bg-navy p-6 shadow-2xl sm:p-8 lg:p-10">
-            <div className="absolute right-[-6rem] top-[-6rem] h-64 w-64 rounded-full bg-gold/20 blur-3xl"></div>
+          {/* Form */}
+          <div className="relative overflow-hidden rounded-xl bg-navy p-5 sm:p-8 lg:p-10 shadow-2xl">
+            <div className="absolute right-[-6rem] top-[-6rem] h-64 w-64 rounded-full bg-gold/20 blur-3xl pointer-events-none"></div>
 
             <div className="relative z-10">
-              <span className="text-sm font-black uppercase tracking-[0.22em] text-gold">Send a Message</span>
-              <h2 className="mt-3 font-heading text-4xl font-black text-cream">Tell us how we can help</h2>
+              <span className="text-xs sm:text-sm font-black uppercase tracking-wider sm:tracking-[0.22em] text-gold">Send a Message</span>
+              <h2 className="mt-2 sm:mt-3 font-heading text-2xl sm:text-3xl md:text-4xl font-black text-cream">Tell us how we can help</h2>
 
-              <form onSubmit={handleSubmit} className="mt-8 grid gap-5" noValidate>
-                <div className="grid gap-5 md:grid-cols-2">
+              <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 grid gap-4 sm:gap-5" noValidate>
+                <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2">
                   {/* Full Name Field */}
                   <label className="block">
-                    <span className="mb-2 block text-sm font-semibold text-cream/80">
+                    <span className="mb-1.5 sm:mb-2 block text-xs sm:text-sm font-semibold text-cream/80">
                       Full Name <span className="text-gold">*</span>
                     </span>
                     <input
@@ -286,7 +290,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleNameChange}
                       onKeyDown={handleNameKeyDown}
-                      className={`w-full rounded-md border bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
+                      className={`w-full rounded-md border bg-cream/10 px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
                         fieldErrors.name ? 'border-red-400' : 'border-cream/20'
                       }`}
                       placeholder="Your Name"
@@ -298,7 +302,7 @@ export default function ContactPage() {
 
                   {/* Phone Number Field */}
                   <label className="block">
-                    <span className="mb-2 block text-sm font-semibold text-cream/80">
+                    <span className="mb-1.5 sm:mb-2 block text-xs sm:text-sm font-semibold text-cream/80">
                       Phone Number <span className="text-gold">*</span>
                     </span>
                     <input
@@ -307,7 +311,7 @@ export default function ContactPage() {
                       onChange={handlePhoneChange}
                       onKeyDown={handlePhoneKeyDown}
                       maxLength={10}
-                      className={`w-full rounded-md border bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
+                      className={`w-full rounded-md border bg-cream/10 px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
                         fieldErrors.phone ? 'border-red-400' : 'border-cream/20'
                       }`}
                       placeholder="Your Phone Number"
@@ -320,7 +324,7 @@ export default function ContactPage() {
 
                 {/* Email Field */}
                 <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-cream/80">Email Address</span>
+                  <span className="mb-1.5 sm:mb-2 block text-xs sm:text-sm font-semibold text-cream/80">Email Address</span>
                   <input
                     type="email"
                     value={formData.email}
@@ -328,7 +332,7 @@ export default function ContactPage() {
                       setFormData({ ...formData, email: e.target.value.trimStart() });
                       if (fieldErrors.email) setFieldErrors((prev) => ({ ...prev, email: '' }));
                     }}
-                    className={`w-full rounded-md border bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
+                    className={`w-full rounded-md border bg-cream/10 px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
                       fieldErrors.email ? 'border-red-400' : 'border-cream/20'
                     }`}
                     placeholder="you@example.com"
@@ -340,7 +344,7 @@ export default function ContactPage() {
 
                 {/* Message Field */}
                 <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-cream/80">
+                  <span className="mb-1.5 sm:mb-2 block text-xs sm:text-sm font-semibold text-cream/80">
                     Message <span className="text-gold">*</span>
                   </span>
                   <textarea
@@ -348,7 +352,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleMessageChange}
                     onKeyDown={handleMessageKeyDown}
-                    className={`w-full resize-none rounded-md border bg-cream/10 px-4 py-3 text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
+                    className={`w-full resize-none rounded-md border bg-cream/10 px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-cream outline-none transition-colors placeholder:text-cream/40 focus:border-gold ${
                       fieldErrors.message ? 'border-red-400' : 'border-cream/20'
                     }`}
                     placeholder="Write your question here"
@@ -358,29 +362,29 @@ export default function ContactPage() {
                   )}
                 </label>
 
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="inline-flex items-center justify-center gap-2 rounded-md bg-gold px-8 py-4 font-black text-navy transition-colors hover:bg-amber hover:text-cream disabled:cursor-not-allowed disabled:opacity-70"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-black text-navy transition-colors hover:bg-amber hover:text-cream disabled:cursor-not-allowed disabled:opacity-70 shrink-0"
                   >
                     {status === 'loading' ? (
                       <>
-                        <Loader2 size={20} className="animate-spin" />
+                        <Loader2 size={18} className="animate-spin" />
                         <span>Sending...</span>
                       </>
                     ) : (
                       <>
-                        <Send size={20} />
+                        <Send size={18} />
                         <span>Send Message</span>
                       </>
                     )}
                   </button>
 
                   {status === 'success' && (
-                    <div className="flex items-center justify-between gap-3 text-sm font-semibold text-green-300 bg-green-950/70 border border-green-500/40 px-4 py-3 rounded-md shadow-lg animate-in fade-in duration-300">
+                    <div className="w-full sm:w-auto flex items-center justify-between gap-3 text-xs sm:text-sm font-semibold text-green-300 bg-green-950/70 border border-green-500/40 px-3.5 sm:px-4 py-3 rounded-md shadow-lg animate-in fade-in duration-300">
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 size={18} className="text-green-400 shrink-0" />
+                        <CheckCircle2 size={16} className="text-green-400 shrink-0" />
                         <span>Message sent successfully.</span>
                       </div>
                       <button
@@ -395,7 +399,7 @@ export default function ContactPage() {
                   )}
 
                   {status === 'error' && (
-                    <div className="flex items-center justify-between gap-3 text-sm font-semibold text-red-300 bg-red-950/70 border border-red-500/40 px-4 py-3 rounded-md shadow-lg animate-in fade-in duration-300">
+                    <div className="w-full sm:w-auto flex items-center justify-between gap-3 text-xs sm:text-sm font-semibold text-red-300 bg-red-950/70 border border-red-500/40 px-3.5 sm:px-4 py-3 rounded-md shadow-lg animate-in fade-in duration-300">
                       <span>{errorMessage || 'Message could not be sent. Please try again.'}</span>
                       <button
                         type="button"
@@ -414,30 +418,31 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-accent pb-20 pt-16 lg:pb-28">
+      {/* Google Maps Section */}
+      <section className="bg-accent pb-12 pt-12 sm:pb-20 sm:pt-16 lg:pb-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div className="mb-6 sm:mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <span className="text-sm font-black uppercase tracking-[0.22em] text-blue">Find Us</span>
-              <h2 className="mt-3 font-heading text-3xl sm:text-4xl md:text-5xl font-black text-navy">Ananda School (U.F.I.)</h2>
+              <span className="text-xs sm:text-sm font-black uppercase tracking-wider sm:tracking-[0.22em] text-blue">Find Us</span>
+              <h2 className="mt-2 sm:mt-3 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-navy">Ananda School (U.F.I.)</h2>
             </div>
-            <div className="flex flex-col items-start gap-2 md:items-end">
-              <p className="max-w-xl text-navy/70">
+            <div className="flex flex-col items-start gap-1.5 md:items-end">
+              <p className="max-w-xl text-sm sm:text-base text-navy/70">
                 Located in Huderait, 24 Pgs (N:), W.B.
               </p>
               <a
                 href="https://www.google.com/maps/place/Usthi+Foundation+Ananda+School/@22.5760239,88.5313427,17z/data=!3m1!4b1!4m6!3m5!1s0x3a020a489345735f:0x66627685c000b0b9!8m2!3d22.576019!4d88.5339176!16s%2Fg%2F11ckfk1nnn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-bold text-blue transition-colors hover:text-navy"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blue transition-colors hover:text-navy"
               >
                 <span>View on Google Maps</span>
-                <ExternalLink size={16} />
+                <ExternalLink size={14} className="sm:w-4 sm:h-4" />
               </a>
             </div>
           </div>
 
-          <div className="h-[28rem] overflow-hidden rounded-lg border border-blue/10 bg-white shadow-xl">
+          <div className="h-[20rem] sm:h-[24rem] md:h-[28rem] lg:h-[30rem] w-full overflow-hidden rounded-xl border border-blue/10 bg-white shadow-xl">
             <iframe
               title="Map showing Usthi Foundation Ananda School"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.4735282245974!2d88.5313427!3d22.5760239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a020a489345735f%3A0x66627685c000b0b9!2sUsthi%20Foundation%20Ananda%20School!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"

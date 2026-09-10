@@ -19,63 +19,65 @@ export default function CBSECurriculum() {
   ];
 
   return (
-    <section className="py-28 bg-navy text-white relative overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-28 bg-navy text-white relative overflow-hidden">
       <div className="absolute left-0 top-0 w-1/2 h-full bg-blue/10 diagonal-cut-bottom pointer-events-none"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          <motion.div 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-14 lg:gap-16 items-center">
+
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div>
-              <span className="text-blue bg-blue/10 rounded-2xl px-2 py-1 font-bold uppercase tracking-widest text-sm mb-2">Academic Standards</span>
-              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black leading-tight">
+              <span className="inline-block text-blue bg-blue/10 rounded-2xl px-3 py-1 font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">Academic Standards</span>
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight">
                 State Board <span className="text-gold">(W.B.)</span>
               </h2>
             </div>
-            
-            <p className="text-white/80 text-lg leading-relaxed font-medium">
+
+            <p className="text-white/80 text-base sm:text-lg leading-relaxed font-medium">
               Our education follows the West Bengal State Board standards with modern teaching methodologies. We ensure that our students are equipped with knowledge that transcends textbooks.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-4 sm:pt-6">
               {features.map((feat, idx) => (
-                <div key={idx} className="bg-white/5 backdrop-blur-md p-6 rounded-[2rem] border border-white/10 hover:bg-white/10 transition-colors group">
-                  <div className="text-gold mb-4 group-hover:scale-110 transition-transform inline-block">{feat.icon}</div>
-                  <h3 className="font-bold text-xl mb-2">{feat.title}</h3>
+                <div key={idx} className="bg-white/5 backdrop-blur-md p-5 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 hover:bg-white/10 transition-colors group">
+                  <div className="text-gold mb-3 sm:mb-4 group-hover:scale-110 transition-transform inline-block">{feat.icon}</div>
+                  <h3 className="font-bold text-lg sm:text-xl mb-2">{feat.title}</h3>
                   <p className="text-white/60 text-sm">{feat.desc}</p>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative mt-4 lg:mt-0"
           >
-            <div className="absolute inset-0 border-4 border-gold translate-x-6 translate-y-6 rounded-[3rem] -z-10"></div>
-            <div className="relative rounded-[3rem] overflow-hidden aspect-square shadow-2xl">
-              <img 
-                src="images/wbbook.jpg" 
-                alt="Classroom learning" 
-                className="w-full object-cover"
+            {/* Offset border kept small on mobile so it doesn't push content off-screen or clip against the viewport edge */}
+            <div className="absolute inset-0 border-2 sm:border-4 border-gold translate-x-3 translate-y-3 sm:translate-x-6 sm:translate-y-6 rounded-[2rem] sm:rounded-[3rem] -z-10"></div>
+            <div className="relative rounded-[2rem] sm:rounded-[3rem] overflow-hidden aspect-square shadow-2xl">
+              <img
+                src="images/wbbook.jpg"
+                alt="Classroom learning"
+                loading="lazy"
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent"></div>
-              
-              <div className="absolute bottom-0 left-0 w-full p-8">
-                <div className="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20">
-                  <h3 className="font-heading text-2xl font-bold text-gold mb-4">Teaching Methodology</h3>
-                  <ul className="space-y-3">
+
+              <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 md:p-8">
+                <div className="bg-white/10 backdrop-blur-xl p-4 sm:p-5 md:p-6 rounded-2xl border border-white/20">
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-gold mb-3 sm:mb-4">Teaching Methodology</h3>
+                  <ul className="space-y-2 sm:space-y-3">
                     {methodology.map((m, i) => (
-                      <li key={i} className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-gold"></div>
-                        <span className="text-white/90 text-sm font-medium">{m}</span>
+                      <li key={i} className="flex items-start sm:items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-gold mt-1.5 sm:mt-0 flex-shrink-0"></div>
+                        <span className="text-white/90 text-xs sm:text-sm font-medium">{m}</span>
                       </li>
                     ))}
                   </ul>
