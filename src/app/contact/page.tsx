@@ -193,7 +193,7 @@ export default function ContactPage() {
 
           <div className="relative min-h-[360px] overflow-hidden rounded-lg shadow-2xl">
             <Image
-              src="/images/ga.webp"
+              src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788953639/20230801_132607.jpg_ehe4le.jpg"
               alt="Students and staff at Ananda School"
               fill
               priority
@@ -258,7 +258,7 @@ export default function ContactPage() {
 
             <div className="relative h-72 overflow-hidden rounded-lg shadow-xl">
               <Image
-                src="/images/campus.jpg"
+                src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788935400/IMG_9807_pvcgpx.jpg"
                 alt="Usthi Foundation India School campus building"
                 fill
                 className="object-cover"

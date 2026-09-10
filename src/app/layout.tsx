@@ -15,9 +15,13 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: 'Usthi Foundation India School - Puri',
-  description: 'Usthi Foundation India, Puri School',
+  title: 'Ananda School',
+  description: 'Ananda School',
+  icons: {
+    icon: '/icon.png',
+  },
 };
+
 
 export default function RootLayout({
   children,
