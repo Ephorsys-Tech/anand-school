@@ -26,11 +26,10 @@ export const contactMessageSchema = z.object({
     .string()
     .transform((val) => val.trim())
     .pipe(
-      z
-        .string()
-        .email('Please enter a valid email address')
-        .optional()
-        .or(z.literal(''))
+      z.union([
+        z.string().email('Please enter a valid email address'),
+        z.literal('')
+      ])
     ),
   message: z
     .string()
