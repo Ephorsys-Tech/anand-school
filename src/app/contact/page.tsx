@@ -258,7 +258,7 @@ export default function ContactPage() {
 
             <div className="relative h-72 overflow-hidden rounded-lg shadow-xl">
               <Image
-                src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1788935400/IMG_9807_pvcgpx.jpg"
+                src="https://res.cloudinary.com/dfdi9ngal/image/upload/v1789026446/anandaschool_xqbv59.jpg"
                 alt="Usthi Foundation India School campus building"
                 fill
                 className="object-cover"
